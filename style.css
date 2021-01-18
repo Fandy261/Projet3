@@ -1,0 +1,155 @@
+button{
+    border-radius: 5px ;
+    border: 5px solid  #fc0404;
+    background-color: #fc0404;
+}
+button a{
+    color: #080808;
+}
+/* largeur de l'écran desktop*/
+main, header, footer{
+    width: 1281px;
+}
+#logo{
+    width: 200px;
+    height: auto;
+}
+/*header*/
+header{
+    background-color:#3d3d3d;
+    /* width:auto; */
+}
+/*main*/
+/*footer*/
+footer{
+    color: #ffffff;
+    background-color: #080808;
+    /* width: auto; */
+    height: 100px;
+}
+footer ul{
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+}
+.acteurs{
+    border: 1px solid black;
+    padding: 10px;
+}
+.acteurs a{
+    text-decoration: none;
+}
+.commentaire{
+    border: 2px solid black;
+    padding: 10px;
+}
+.presentation{
+    background-color: #e6b7b7;
+}
+.section_acteurs{
+    border: 1px solid black;
+    padding: 10px;
+}
+/*palette color:CSS HEX 
+--white: #FFFFFFff;
+--red-ryb: #FF1B1Bff;
+--onyx: #3D3D3Dff;
+--red-ryb-2: #FF1B1Bff;
+--red-ryb-3: #FF1B1Bff;
+*/
+
+
+  /*Page acteur
+  -----------------------------------
+  -----------------------------------
+  */
+ #logo_acteur{
+     display:block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 600px;
+  }
+  .comment{
+      height: 250px;
+  }
+  /*espace de commentaires*/
+.button{
+    margin: 50px;
+    padding: 15px;
+    background-color: #3d3d3d;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 400px;
+    height: 50px;
+}
+input[type=checkbox] {
+    display: none;
+  }
+  /*espace de like/dislike*/
+  .vote{
+      width: 150px;
+      float: right;
+      
+  }
+  .vote form {
+    display: inline-block;
+}
+  .vote_bar{
+      width: 100%;
+      height: 4px;
+      background-color: #f2504b;
+      
+  }
+  .vote_progress{
+      width: 0%;
+      height: 4px;
+      background-color: #63b96b;
+  }
+  .vote_btns{
+      text-align: right;
+     
+  }
+  .vote_btn{
+      display: inline-block;
+      cursor: pointer;
+      border: none;
+      padding: 0px;
+      margin: 0 10px;
+      background: transparent;
+      transition: color 0.3s;
+  }
+  .vote_like:hover{
+    color: #63b96b;
+  }
+  .vote_dislike:hover{
+      color: #f2504b;
+  }
+
+  /* input[type=checkbox]:checked~.remove-check {
+    display: none;
+  }
+   */
+  input[type=checkbox]:checked~#newComment {
+    display: block;
+  }
+  
+  #newComment {
+    display: none;
+  }
+  
+  /*Page inscription*/
+  .page_inscription{
+      width:100%;
+  }
+  /*Page connexion*/
+  main .connexion{
+      width: auto;
+      height: auto;
+      margin-bottom: 210px;
+  }
+  /*Page parametre de compte*/
+  main .profil{
+    width: auto;
+    height: auto;
+    margin-bottom: 230px;
+}
