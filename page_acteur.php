@@ -31,42 +31,8 @@ include("connexion_pdo.php");//pour se connecter à la base de donnée
             <?php 
             $reponse->closeCursor();
             ?>
-            <!-- Création d'espace de commentaires 
-            --------------------------------------
-            --------------------------------------
-            -->
-            <section class="comment">
-                <?php 
-                //$req = $bdd->prepare('SELECT username FROM account WHERE username="'.$_POST['username'].'"');
-                //$req->execute(array($_POST['username']));
-                //$req = $req->fetch();
-                //$req->closeCursor();
-                $print_comment = $bdd->prepare('SELECT * FROM post WHERE id_acteur=?');
-                $print_comment ->execute(array($_GET['acteur']));
-                while($comment = $print_comment->fetch()){
-                    echo $comment['id_user'] ;
-                    ?>
-                    </br>
-                    <?php
-                    echo $comment['date_add'].':';
-                echo $comment['post'];?>
-                </br>
-                <?php
-            }
-                $print_comment->closeCursor();
-                ?>
-                <h4>X Commentaires</h4>
-                <label for="reveal-comment" class="button"> Nouveau commentaire</label>
-                <input type="checkbox" id="reveal-comment" role="button">
-                <div id="newComment">
-                    <form  action="traitement_commentaire.php" method="POST">
-                        <textarea name="post" id = "post" cols="50" rows="3" ></textarea>
-                        <input type="hidden" value="<?php echo $donnees['id_acteur'];?>" name="id_acteur" id="id_acteur">
-                        <button type="submit" name = "form_comment"></button>
-                    </form>
-                </div>
-                <!-- like/dislike -->
-                <?php
+            <!-- like/dislike -->
+            <?php
                 if(isset($_GET['acteur']) && !empty($_GET['acteur']))
                 {
                     $acteur = $bdd->prepare('SELECT * FROM acteurs WHERE id_acteur=?');
@@ -94,10 +60,46 @@ include("connexion_pdo.php");//pour se connecter à la base de donnée
                             <button type="submit" class="vote_btn vote_like"><i class="fa fa-thumbs-up"></i><a style="text-decoration: none" href="traitement_vote.php?acteur=<?php echo $donnees['id_acteur'];?>&vote=1"><?php echo $likes['vote'];?></a></button>
                         </form>
                         <form action="" method = "POST">
-                            <button type="submit" class="vote_btn vote_dislike"><i class="fa fa-thumbs-down"></i><a style="text-decoration: none" href="traitement_vote.php?acteur=<?php echo $donnees['id_acteur'];?>&vote=2"><?php  echo $dislikes['vote'];?></button>
+                            <button type="submit" class="vote_btn vote_dislike"><i class="fa fa-thumbs-down"></i><a style="text-decoration: none" href="traitement_vote.php?acteur=<?php echo $donnees['id_acteur'];?>&vote=2"><?php  echo $dislikes['vote'];?></a></button>
                         </form>
                     </div>
                 </div>
+            </section>
+            <!-- Création d'espace de commentaires 
+            --------------------------------------
+            --------------------------------------
+            -->
+            <section class="comment">
+                <label for="reveal-comment" class="button"> Nouveau commentaire</label>
+                <input type="checkbox" id="reveal-comment" role="button">
+                <div id="newComment">
+                    <form  action="traitement_commentaire.php" method="POST">
+                        <textarea name="post" id = "post" cols="50" rows="3" ></textarea>
+                        <input type="hidden" value="<?php echo $donnees['id_acteur'];?>" name="id_acteur" id="id_acteur">
+                        <button type="submit" name = "form_comment"></button>
+                    </form>
+                </div>
+                <h4>Commentaires</h4>
+                <?php 
+                // $req = $bdd->query('SELECT * FROM account');
+                // while($req = $req->fetch())
+                // {
+                //     echo $req['username'];
+                // }
+                // $req->closeCursor();
+                $print_comment = $bdd->prepare('SELECT * FROM post WHERE id_acteur=? ORDER BY post ASC LIMIT 0,5 ');
+                $print_comment ->execute(array($_GET['acteur']));
+                while($comment = $print_comment->fetch()){
+                    echo $comment['id_user'].':' ;
+                    ?>
+                    <?php
+                    echo $comment['date_add'].':';
+                echo $comment['post'];?>
+                </br>
+                <?php
+                }
+                $print_comment->closeCursor();
+                ?>
             </section>
             <?php
             if(isset($erreur))
