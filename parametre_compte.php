@@ -1,6 +1,6 @@
-<?php include("entete.php");
-session_start();
-if(isset($_GET['username']))
+<?php session_start();
+include "connexion_pdo.php";
+if(isset($_SESSION['username']))
 {
     //$getid = intval($_GET['id_user']);
     $reponse = $bdd->prepare('SELECT * FROM account WHERE id_user = ?');
@@ -17,12 +17,12 @@ if(isset($_GET['username']))
     <body>
         <!-- L'entête  -->
         <header>
-            
+        <?php include("entete.php");?>
         </header>
         <main >
+            <a align = "left" href="index.php?username=<?php echo $_SESSION['username'];?>">Retour à la page d'acceuil</a>
             <section class="profil">
-                <h2 align="center">Profil de <?php echo $_GET['username'];?></h2>
-                <a align = "left" href="index.php?username=<?php echo $_SESSION['username'];?>">Retour à la page d'acceuil</a>
+                <h2 align="center">Profil de <?php echo $_SESSION['username'];?></h2>
                 <p><a href="#changed_password">Veuillez changer votre mot de passe</a></p>
                 <form action="page_connexion.php" method = "POST">
                 <table class="changed_password">
@@ -40,6 +40,7 @@ if(isset($_GET['username']))
                     </tr>
                 </table>
                 </form>
+                <div class="deconnexion"><a href="page_deconnexion.php"><p>Se déconnecter</p></a></div>
                 <?php
                 if(isset($erreur))
                 {

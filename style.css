@@ -3,42 +3,71 @@ a{
 }
 button{
     border-radius: 5px ;
-    border: 5px solid  #fc0404;
-    background-color: #fc0404;
+    border: 5px solid #777777;
+    background-color:#777777;
+    margin: auto;
 }
 button a{
-    color: #080808;
+    color: white;
 }
 /* largeur de l'écran desktop*/
-main, header, footer{
-    width: 1281px;
-    height: 100%;
+/* @media all and (max-width: 1024px)
+{
+    main, header, footer
+    {
+        height: auto;
+        width: auto;
+    }
+} */
+html{
+    margin-left: auto;
+    margin-right: auto;
 }
 #logo{
-    width: 200px;
+    width: 150px;
     height: auto;
 }
 /*header*/
 header{
-    background-color:#3d3d3d;
+    background-color:#4C4C4C;
+    color: #ffffff;
+    height: auto;
+    padding-bottom: 30px;
     /* width:auto; */
 }
 /*main*/
+main{
+    background-color: 	#959595;
+    height: auto;
+    padding: 20px;
+}
 /*footer*/
 footer{
-    color: #ffffff;
-    background-color: #080808;
+    
+    background-color:#545454;
     /* width: auto; */
     height: 100px;
+    padding-top: 30px;
 }
-footer ul{
-    display: flex;
+footer ul a{
+    color: #ffffff;
+}
+footer ul li{
+    
+    display: inline-block;
     list-style-type: none;
-    align-items: center;
+ }
+footer ul{
+    text-align: center;
+    
 }
+/* page index 
+------------------------------
+------------------------------
+*/
 .acteurs{
-    border: 1px solid black;
-    padding: 10px;
+    
+    
 }
 .acteurs a{
     text-decoration: none;
@@ -48,39 +77,76 @@ footer ul{
     padding: 10px;
 }
 .presentation{
-    background-color: #e6b7b7;
-}
-.section_acteurs{
-    border: 1px solid black;
+    background-color: #D3D3D3;
+    border-radius: 10px;
     padding: 10px;
 }
-/*palette color:CSS HEX 
---white: #FFFFFFff;
---red-ryb: #FF1B1Bff;
---onyx: #3D3D3Dff;
---red-ryb-2: #FF1B1Bff;
---red-ryb-3: #FF1B1Bff;
-*/
-
-
+.section_acteurs{
+    background-color: #D3D3D3;
+    border-radius: 30px;
+    padding: 10px;
+}
+.acteurs {
+    padding: 10px;
+    position: relative;
+}
+.acteurs button {
+    float: right;
+}
+.acteurs a img {
+    border-radius: 20px;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+}
   /*Page acteur
   -----------------------------------
   -----------------------------------
   */
+.p1{
+    line-height: 0.5em;
+    font-size: 1em;
+    font-weight: bold;
+}
+.p2{
+    line-height: 0.5em;
+    font-size: x-small;
+    font-weight: lighter;
+}
+.p3{
+    line-height: 0.5em;
+    font-size: 1em;
+    font-weight: normal;
+}
  #logo_acteur{
-     display:block;
-      margin-left: auto;
-      margin-right: auto;
-      width: 600px;
-  }
-  .comment{
-      height: 250px;
+    border-radius: 20px;
+    width: 400px;
+    text-align: center;
+    margin-top: 10px;
   }
   /*espace de commentaires*/
+  textarea{
+      background-color: #D3D3D3;
+  }
+.comment .table_comment{
+    display: block;
+    margin: 10px;
+    /* padding: 2px; */
+    padding-left: 10px;
+    padding-top: 1px;
+    width: 600px;
+    height: 80px;
+    border-radius: 8px;
+    background-color:#bbbbbb;
+  }
+.newComment{
+    margin-top: 60px;
+}
 .button{
     margin: 50px;
     padding: 15px;
-    background-color: #3d3d3d;
+    font-weight: bold;
+    background-color: #bbbbbb;
     cursor: pointer;
     border-radius: 5px;
     width: 400px;
@@ -91,6 +157,10 @@ input[type=checkbox] {
   }
 #newComment{
       margin-bottom: 150px;
+      display: none;
+  }
+  #right_part{
+      display: inline-block;
   }
   /*espace de like/dislike*/
   .vote{
@@ -104,6 +174,7 @@ input[type=checkbox] {
   .vote_bar{
       width: 100%;
       height: 4px;
+      margin-right: 10px;
       background-color: #f2504b;
       
   }
@@ -120,8 +191,10 @@ input[type=checkbox] {
       display: inline-block;
       cursor: pointer;
       border: none;
-      padding: 0px;
-      margin: 0 10px;
+      padding: 0;
+      margin: 0;
+      margin-left: 10px;
+      margin-right: 10px;
       background: transparent;
       transition: color 0.3s;
   }
@@ -131,7 +204,14 @@ input[type=checkbox] {
   .vote_dislike:hover{
       color: #f2504b;
   }
-
+  .vote_like:active{
+    color: #63b96b;
+    border: none;
+  }
+  .vote_dislike:active{
+    color: #f2504b;
+    border: none;
+  }
   /* input[type=checkbox]:checked~.remove-check {
     display: none;
   }
@@ -140,9 +220,6 @@ input[type=checkbox] {
     display: block;
   }
   
-  #newComment {
-    display: none;
-  }
   
   /*Page inscription*/
   .page_inscription{
@@ -150,13 +227,28 @@ input[type=checkbox] {
   }
   /*Page connexion*/
   main .connexion{
+      padding-top: 50px;
       width: auto;
-      height: auto;
-      margin-bottom: 210px;
+      /* height: auto; */
+      height: 500px;
   }
   /*Page parametre de compte*/
-  main .profil{
-    width: auto;
-    height: auto;
-    margin-bottom: 230px;
+  .profil{
+    margin-left: 300px;
+    margin-right: 300px;
+    background-color: #D3D3D3;
+    border-radius: 10px;
+    padding: 10px;
+    width: 800px;
+    height: 500px;
+  }
+.changed_password{
+    background-color: #D3D3D3;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
 }
+.changed_password input{
+    
+}
+ 

@@ -19,7 +19,7 @@ include 'connexion_pdo.php';
         <!--le contenu-->
         <main>
             <section class="presentation">
-                <h1>h1</h1>
+                <!-- <h1>h1</h1> -->
                 <p>Le Groupement Banque Assurance Français (GBAF) est une fédération représentant les 6 grands groupes français :
                     <ul>
                         <li>BNP Paribas;</li>
@@ -36,22 +36,22 @@ national. Le GBAF est le représentant de la profession bancaire et des assureur
 l'activité bancaire à l’échelle nationale. C’est aussi un interlocuteur privilégié des pouvoirs publics.
                 </p>
                 <div id="illustration">
-                    <p>illustration</p>
+                    <!-- <p>illustration</p> -->
                 </div>
             </section>
             
                 <?php 
-                $reponse = $bdd -> query('SELECT id_acteur, nom, description FROM acteurs');
+                $reponse = $bdd -> query('SELECT id_acteur, nom, description, logo FROM acteurs');
                 while($donnees = $reponse -> fetch())
                 {
                 ?>
                     <section class="section_acteurs">
-                        <h2><?php echo $donnees['nom'];?></h2>
-                        <p>texte acteurs et partenaires</p>
-                        <p>...</p>
+                        <!-- <h2><?php //echo $donnees['nom'];?></h2> -->
+                        <!-- <p>texte acteurs et partenaires</p> -->
+                        <!-- <p>...</p> -->
                         <article class="acteurs">
-                            <img src="" alt="logo_acteur">
-                            <h3>h3</h3>
+                            <a href="page_acteur.php?acteur=<?php echo $donnees['id_acteur'];?>"><img id="logo_acteurs_index" src="<?php echo $donnees['logo'];?>" alt="logo_acteur"></a>
+                            <!-- <h3>h3</h3> -->
                             <?php
                             $shortDescription = substr($donnees['description'], 0, 200); 
                             ?>

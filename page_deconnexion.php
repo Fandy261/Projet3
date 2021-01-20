@@ -1,8 +1,8 @@
 <?php
 session_start();
-$_SESSION = array();
-header('Location: page_connexion.php?username='.$_SESSION['username']);
+// $_SESSION = array();
 session_destroy();
+header('Location: page_connexion.php');
 ?>
 <!DOCTYPE html> 
 <html>
