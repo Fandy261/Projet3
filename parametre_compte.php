@@ -1,11 +1,29 @@
 <?php session_start();
 include "connexion_pdo.php";
-if(isset($_SESSION['username']))
-{
+// if(isset($_SESSION['username']))
+// {
     //$getid = intval($_GET['id_user']);
-    $reponse = $bdd->prepare('SELECT * FROM account WHERE id_user = ?');
+    // $reponse = $bdd->prepare('SELECT * FROM account WHERE id_user = ?');
     //$reponse->execute(array($_SESSION['id_user']));
-    $donnees = $reponse->fetch();
+    // $donnees = $reponse->fetch();
+    if(!empty('form_changedMdp'))
+    {
+        if(!empty($_POST['changed_password']) && !empty($_POST['changed_password2']))
+        {
+            $password = $_POST['changed_password'];
+            $password2 = $_POST['changed_password2'];
+            if($password==$password2)
+                {   
+                    $cryptedpassword = password_hash($password, PASSWORD_DEFAULT);
+                    $updatemembre = $bdd->prepare('UPDATE account SET password = :mdp');
+                    $updatemembre->execute(array('mdp'=>$cryptedpassword));
+                    $updatemembre->closeCursor();
+                }
+            else echo 'erreur mot de passe different';
+        }
+        else echo 'erreur mot de passe different';
+    }
+    else echo 'erreur form vide';
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,7 +57,7 @@ if(isset($_SESSION['username']))
                     </tr>
                     <tr>
                     <td></td>
-                    <td><button type="submit" name="send">Envoyez</button></td>
+                    <td><button type="submit" name="form_changedMdp">Envoyez</button></td>
                     </tr>
                 </table>
                 </form>
@@ -59,5 +77,6 @@ if(isset($_SESSION['username']))
     </body>
 </html>
 <?php 
-}
+// }
+// else echo 'erreur';
 ?>
