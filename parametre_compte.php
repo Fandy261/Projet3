@@ -20,10 +20,9 @@ if(isset($_SESSION['username']))
         <?php include("entete.php");?>
         </header>
         <main >
-            <a align = "left" href="index.php?username=<?php echo $_SESSION['username'];?>">Retour à la page d'acceuil</a>
             <section class="profil">
                 <h2 align="center">Profil de <?php echo $_SESSION['username'];?></h2>
-                <p><a href="#changed_password">Veuillez changer votre mot de passe</a></p>
+                <!-- <p><a href="#changed_password">Veuillez changer votre mot de passe s'il vous plaît</a></p> -->
                 <form action="page_connexion.php" method = "POST">
                 <table class="changed_password">
                     <tr>
@@ -35,12 +34,15 @@ if(isset($_SESSION['username']))
                         <td><input type="password" name="changed_password2" value="" id = "changed_password2"></td>
                     </tr>
                     <tr>
+                        <td></br></td>
+                        <td></br></td>
+                    </tr>
+                    <tr>
                     <td></td>
-                    <td><button type="submit" name="">Envoyez</button></td>
+                    <td><button type="submit" name="send">Envoyez</button></td>
                     </tr>
                 </table>
                 </form>
-                <div class="deconnexion"><a href="page_deconnexion.php"><p>Se déconnecter</p></a></div>
                 <?php
                 if(isset($erreur))
                 {

@@ -1,11 +1,12 @@
 a{
     text-decoration: none;
+    color: #D3D3D3;
 }
 button{
     border-radius: 5px ;
-    border: 5px solid #777777;
-    background-color:#777777;
-    margin: auto;
+    border: 5px solid #D3D3D3;
+    /* background-color:#777777; */
+    /* margin: auto; */
 }
 button a{
     color: white;
@@ -24,27 +25,50 @@ html{
     margin-right: auto;
 }
 #logo{
-    width: 150px;
+    width: 110px;
     height: auto;
+    /* border: 10px solid #D3D3D3; */
+    border-radius: 20px 20px;
+    /* color: black; */
 }
 /*header*/
 header{
-    background-color:#4C4C4C;
-    color: #ffffff;
+    background-color:black;
     height: auto;
-    padding-bottom: 30px;
+    padding-bottom: 25px;
+    color: black;
     /* width:auto; */
+}
+header a{
+    font-size: small;
+}
+#naviguation {
+    background-color: white;
+    
+}
+#naviguation a{
+    color: black;
+    font-size: 1.1em;
+    font-weight: bolder;
+}
+.nom_prenom{
+    position:absolute;
+    top:40px;
+    right:85px;
+}
+header.nom_prenom a{
+    font-weight: bolder;
 }
 /*main*/
 main{
-    background-color: 	#959595;
+    background-color: #545454;
     height: auto;
     padding: 20px;
 }
 /*footer*/
 footer{
     
-    background-color:#545454;
+    background-color:black;
     /* width: auto; */
     height: 100px;
     padding-top: 30px;
@@ -61,14 +85,13 @@ footer ul{
     text-align: center;
     
 }
+#pied_de_page a{
+    font-size: small;
+}
 /* page index 
 ------------------------------
 ------------------------------
 */
-.acteurs{
-    
-    
-}
 .acteurs a{
     text-decoration: none;
 }
@@ -78,23 +101,27 @@ footer ul{
 }
 .presentation{
     background-color: #D3D3D3;
-    border-radius: 10px;
+    /* border: 10px solid white; */
     padding: 10px;
 }
 .section_acteurs{
     background-color: #D3D3D3;
-    border-radius: 30px;
+    /* border-radius: 30px; */
     padding: 10px;
 }
 .acteurs {
     padding: 10px;
     position: relative;
+    border: 10px solid white;
 }
 .acteurs button {
     float: right;
+    color: black;
+    background-color: #545454;
+    border-radius: 8px;
 }
 .acteurs a img {
-    border-radius: 20px;
+    border-radius: 60px;
     width: 200px;
     height: 100px;
     text-align: center;
@@ -103,6 +130,11 @@ footer ul{
   -----------------------------------
   -----------------------------------
   */
+  .description_acteur{
+    background-color: #D3D3D3;
+    /* border-radius: 30px; */
+    padding: 10px;
+  }
 .p1{
     line-height: 0.5em;
     font-size: 1em;
@@ -119,14 +151,14 @@ footer ul{
     font-weight: normal;
 }
  #logo_acteur{
-    border-radius: 20px;
+    border-radius:60px;
     width: 400px;
     text-align: center;
     margin-top: 10px;
   }
   /*espace de commentaires*/
   textarea{
-      background-color: #D3D3D3;
+      background-color:white;
   }
 .comment .table_comment{
     display: block;
@@ -137,7 +169,7 @@ footer ul{
     width: 600px;
     height: 80px;
     border-radius: 8px;
-    background-color:#bbbbbb;
+    background-color:white;
   }
 .newComment{
     margin-top: 60px;
@@ -146,7 +178,7 @@ footer ul{
     margin: 50px;
     padding: 15px;
     font-weight: bold;
-    background-color: #bbbbbb;
+    background-color: white;
     cursor: pointer;
     border-radius: 5px;
     width: 400px;
@@ -230,25 +262,47 @@ input[type=checkbox] {
       padding-top: 50px;
       width: auto;
       /* height: auto; */
-      height: 500px;
+      height: 400px;
+  }
+  .connexion input{
+      height: 40px;
+      width: 170px;
+      margin: 20px;
+      border-radius: 5px;
+  }
+  .connexion button{
+    cursor: pointer;
+    background-color: white;
+    border: white;
   }
   /*Page parametre de compte*/
   .profil{
-    margin-left: 300px;
-    margin-right: 300px;
-    background-color: #D3D3D3;
-    border-radius: 10px;
-    padding: 10px;
-    width: 800px;
-    height: 500px;
+    margin-left: 500px;
+    margin-right: 500px;
+    background-color: white;
+    padding: 50px;
   }
-.changed_password{
-    background-color: #D3D3D3;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 10px;
+  main .profil{
+    width: auto;
+    height: 300px;
+  }
+  .profil a{ 
+      color: black;
+  }
+.changed_password button{
+    cursor: pointer;
+    background-color: #545454;
+    border: #545454;
 }
 .changed_password input{
-    
+    background-color:#545454;
+    border: #545454;
+    padding: 6px;
+    margin: 20px;
+    border-radius: 5px;
+}
+/* quand le curseur est sur le champ */
+input{
+    border: #959595;
 }
  

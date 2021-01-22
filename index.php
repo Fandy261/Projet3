@@ -3,6 +3,10 @@ session_start();
 include 'connexion_pdo.php';
 ?>
 <!DOCTYPE html>
+<?php
+if(!empty($_SESSION))//pour vérifier si la formulaire existe
+{
+?>
 <html>
     <head>
         <title>Extranet</title>
@@ -68,3 +72,6 @@ l'activité bancaire à l’échelle nationale. C’est aussi un interlocuteur p
         <?php include ("pieddepage.php") ?>
     </body>
 </html>
+<?php
+}
+?>

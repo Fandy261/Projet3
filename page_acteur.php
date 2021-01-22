@@ -16,7 +16,6 @@ include("connexion_pdo.php");//pour se connecter à la base de donnée
         <?php include('entete.php');?>
         </header>
         <main>
-            <a align = "left" href="index.php?username=<?php echo $_SESSION['username'];?>">Retour à la page d'acceuil</a>
             <?php include 'connexion_pdo.php';?>
             <?php 
             $reponse = $bdd -> prepare('SELECT id_acteur, nom, logo, description FROM acteurs WHERE id_acteur=?');
@@ -24,7 +23,7 @@ include("connexion_pdo.php");//pour se connecter à la base de donnée
             $donnees = $reponse -> fetch()
             ?>
             <section class="description_acteur">
-                <center><img id="logo_acteur" src="<?php echo $donnees['logo'];?>" alt="logo_acteur" style="border-radius: 20px"></center>
+                <center><img id="logo_acteur" src="<?php echo $donnees['logo'];?>" alt="logo_acteur" ></center>
                 <h2><?php echo $donnees['nom'];?></h2>
                 <p><?php echo $donnees['description'];?></p>
             </section>

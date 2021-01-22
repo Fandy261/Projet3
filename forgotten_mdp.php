@@ -4,13 +4,12 @@ session_start();
 <!DOCTYPE html>
 <?php 
 $bdd = new PDO ('mysql:host=localhost;dbname=projet3', 'root','');//pour se connecter à la base de donnée
-if(isset($_POST['formConnexion']))//pour vérifier si la formulaire existe
+if(isset($_POST['formForgotten_mdp']))//pour vérifier si la formulaire existe
 {
     //créer des variables associées aux entrées des utilisateurs en relation avec la table account
     $username = htmlspecialchars($_POST['username']);
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    //$password = $_POST['password'];
-    if(!empty($_POST['username']) && !empty($_POST['password']))
+    $question = htmlspecialchars($_POST['question']);
+    if(!empty($_POST['username']) && !empty($_POST['question']))
     {
         //vérifier si on a un même username 
         $req = $bdd->prepare('SELECT * FROM account WHERE username = "'.$username.'"');
@@ -18,12 +17,13 @@ if(isset($_POST['formConnexion']))//pour vérifier si la formulaire existe
         $username_count = $req->rowcount();
         if($username_count == 1)
         {
-            //$req = $bdd->prepare('SELECT * FROM account WHERE password = "'.$password.'"');
-            //$req->execute(array($password));
             $donnees = $req->fetch();
-            $passwordverified = password_verify($_POST['password'], $donnees['password']);
+            $req2 = $bdd->prepare('SELECT * FROM account WHERE question = "'.$question.'"');
+            $req2->execute(array($question));
+            $question_count = $req2->rowcount();
+            // $passwordverified = password_verify($_POST['password'], $donnees['password']);
             //verifier que le mot de passe fourni par l'utilisateur correspond à celui de la bdd
-            if($passwordverified == 1)
+            if($question_count>= 1)
             {
                 // créer quelques variables de session dans $_SESSION
                 $_SESSION['nom'] = $donnees['nom'];
@@ -31,11 +31,12 @@ if(isset($_POST['formConnexion']))//pour vérifier si la formulaire existe
                 $_SESSION['username'] = $donnees['username'];   
                 $_SESSION['id_user'] = $donnees['id_user'];  
                 //var_dump($_SESSION);
-                header('Location: index.php');
+                echo 'Veuillez créer un nouveau mot de passe';
+                header('Location: parametre_compte.php?id_user='.$_POST['username']);
             }
             else
             {
-                $erreur = 'Mot de passe ne correspond pas, veuillez changer votre mot de passe s\'il vous plaît';
+                $erreur = 'Veuillez tapez bien votre question secrète:';
                 // header('Location: parametre_compte.php');
             }
             $req->closeCursor();
@@ -73,14 +74,13 @@ if(isset($_POST['formConnexion']))//pour vérifier si la formulaire existe
         <main >
             <!-- <time datetime="2021-01-12">January 12, 2021</time> -->
             <section class="connexion">
-                <h2 align="center">Connectez-vous</h2>
-                <form method="POST" action=" " align="center">
+                <h2 align="center">Veuillez entrer votre username et la question secrète s'il vous plaît:</h2>
+                <form method="POST" align="center">
                     <input type="text" name="username" placeholder="UserName">
-                    <input type="password" name="password"  placeholder="Votre mot de passe"/> 
-                    <button type="submit" name="formConnexion">Se connecter</button>
+                    <input type="text" name="question" id="question" placeholder="Question secrète">
+                    <button type="submit" name="formForgotten_mdp">Envoyer</button>
                 </form>
             </section>
-            <a href="forgotten_mdp.php">Mot de passe oublié?</a>
             <?php
                 if(isset($erreur))
                 {
