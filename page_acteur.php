@@ -39,6 +39,7 @@ include("connexion_pdo.php");//pour se connecter à la base de donnée
                     if($acteur->rowCount() == 1)
                     {
                         $acteur = $acteur->fetch();
+                        // $acteur->closeCursor();
                         $id = $acteur['id_acteur'];
 
                         $likes = $bdd->prepare('SELECT * FROM likes WHERE id_acteur = ?');
@@ -48,11 +49,12 @@ include("connexion_pdo.php");//pour se connecter à la base de donnée
                         $dislikes = $bdd->prepare('SELECT * FROM dislikes WHERE id_acteur = ?');
                         $dislikes ->execute(array($id));
                         $dislikes = $dislikes->rowCount();
+                        
                     }
                     
                 }
                 ?> 
-                <div class="newComment" style = "margin-left: 1050px">
+                <div class="newComment">
                     <label for="reveal-comment" class="button"> Nouveau commentaire</label>
                     <input type="checkbox" id="reveal-comment" role="button">
                     <div id="newComment">

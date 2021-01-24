@@ -44,29 +44,29 @@ l'activité bancaire à l’échelle nationale. C’est aussi un interlocuteur p
                 </div>
             </section>
             
-                <?php 
-                $reponse = $bdd -> query('SELECT id_acteur, nom, description, logo FROM acteurs');
-                while($donnees = $reponse -> fetch())
-                {
-                ?>
-                    <section class="section_acteurs">
-                        <!-- <h2><?php //echo $donnees['nom'];?></h2> -->
-                        <!-- <p>texte acteurs et partenaires</p> -->
-                        <!-- <p>...</p> -->
-                        <article class="acteurs">
-                            <a href="page_acteur.php?acteur=<?php echo $donnees['id_acteur'];?>"><img id="logo_acteurs_index" src="<?php echo $donnees['logo'];?>" alt="logo_acteur"></a>
-                            <!-- <h3>h3</h3> -->
-                            <?php
-                            $shortDescription = substr($donnees['description'], 0, 200); 
-                            ?>
-                            <p><?php  echo $shortDescription . ' ' . '...';?></p>
-                            <button><a href="page_acteur.php?acteur=<?php echo $donnees['id_acteur'];?> ">lire la suite</a> </button>
-                            </article> 
-                    </section>
-                <?php 
-                }
-                $reponse->closeCursor();
-                ?>
+            <?php 
+            $reponse = $bdd -> query('SELECT id_acteur, nom, description, logo FROM acteurs');?>
+            <section class="section_acteurs">
+            <?php
+            while($donnees = $reponse -> fetch())
+            {
+            ?>
+                <!-- <h2><?php //echo $donnees['nom'];?></h2> -->
+                <!-- <p>texte acteurs et partenaires</p> -->
+                <!-- <p>...</p> -->
+                <article class="acteurs">
+                    <a href="page_acteur.php?acteur=<?php echo $donnees['id_acteur'];?>"><img id="logo_acteurs_index" src="<?php echo $donnees['logo'];?>" alt="logo_acteur"></a>
+                    <!-- <h3>h3</h3> -->
+                    <?php
+                    $shortDescription = substr($donnees['description'], 0, 200); 
+                    ?>
+                    <p><?php  echo $shortDescription . ' ' . '...';?></p>
+                    <button><a href="page_acteur.php?acteur=<?php echo $donnees['id_acteur'];?> ">lire la suite</a> </button>
+                </article> 
+                    <?php 
+                    }
+                    $reponse->closeCursor();
+                    ?>
             </section>
         </main>
         <?php include ("pieddepage.php") ?>

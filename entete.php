@@ -8,7 +8,7 @@ include("connexion_pdo.php");//pour se connecter à la base de donnée
     <header>
         <div id="naviguation">
                 <a href="index.php"><img id="logo" src="https://user.oc-static.com/upload/2019/07/15/15631755744257_LOGO_GBAF_ROUGE%20%281%29.png" alt="logo GBAF"></a> 
-                <div id="icone"><a href="parametre_compte.php"><img src="images/icone.jpg" alt="icone" style="border-radius: 110px;width:45px; position:absolute;top:30px;right:200px;margin-right:10px"></a></div>
+                <div id="icone"><a href="parametre_compte.php"><img src="images/icone.jpg" alt="icone" style="border-radius: 110px;width:45px; position:absolute;top:30px;right:230px;margin-right:10px"></a></div>
                 <!-- verification de l'existence des variables SESSION
                 -----------------------------------------------------
                 -----------------------------------------------------

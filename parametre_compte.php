@@ -1,12 +1,12 @@
 <?php session_start();
 include "connexion_pdo.php";
-// if(isset($_SESSION['username']))
+// if(isset($_SESSION['id_user']))
 // {
-    //$getid = intval($_GET['id_user']);
-    // $reponse = $bdd->prepare('SELECT * FROM account WHERE id_user = ?');
-    //$reponse->execute(array($_SESSION['id_user']));
-    // $donnees = $reponse->fetch();
-    if(!empty('form_changedMdp'))
+    // $getid = intval($_GET['id_user']);
+    $reponse = $bdd->prepare('SELECT * FROM account WHERE id_user = ?');
+    $reponse->execute(array($_SESSION['id_user']));
+    $donnees = $reponse->fetch();
+    if(isset($_POST['form_changedMdp']))
     {
         if(!empty($_POST['changed_password']) && !empty($_POST['changed_password2']))
         {
@@ -15,15 +15,18 @@ include "connexion_pdo.php";
             if($password==$password2)
                 {   
                     $cryptedpassword = password_hash($password, PASSWORD_DEFAULT);
-                    $updatemembre = $bdd->prepare('UPDATE account SET password = :mdp');
-                    $updatemembre->execute(array('mdp'=>$cryptedpassword));
+                    $updatemembre = $bdd->prepare('UPDATE account SET password = :mdp WHERE id_user = :id_user');
+                    $updatemembre->execute(array('mdp'=>$cryptedpassword,
+                                                'id_user' =>$_SESSION['id_user']));
                     $updatemembre->closeCursor();
+                    header('Location: page_connexion.php');
                 }
             else echo 'erreur mot de passe different';
         }
-        else echo 'erreur mot de passe different';
+        else echo 'tous les champs doivent être complétés';
     }
-    else echo 'erreur form vide';
+    // else echo 'erreur form vide';
+// }
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,7 +44,7 @@ include "connexion_pdo.php";
             <section class="profil">
                 <h2 align="center">Profil de <?php echo $_SESSION['username'];?></h2>
                 <!-- <p><a href="#changed_password">Veuillez changer votre mot de passe s'il vous plaît</a></p> -->
-                <form action="page_connexion.php" method = "POST">
+                <form action="" method = "POST">
                 <table class="changed_password">
                     <tr>
                         <td><label for="changed_password">Changez votre mot de passe</label></td>
