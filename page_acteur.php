@@ -22,6 +22,7 @@ include("connexion_pdo.php");//pour se connecter à la base de donnée
             $reponse ->execute(array($_GET['acteur']));
             $donnees = $reponse -> fetch()
             ?>
+            <a align = "left" href="index.php">Retour à la page d'acceuil</a>
             <section class="description_acteur">
                 <center><img id="logo_acteur" src="<?php echo $donnees['logo'];?>" alt="logo_acteur" ></center>
                 <h2><?php echo $donnees['nom'];?></h2>
@@ -30,7 +31,7 @@ include("connexion_pdo.php");//pour se connecter à la base de donnée
             <?php 
             $reponse->closeCursor();
             ?>
-            <!-- like/dislike -->
+            <!----------------------- like/dislike ------------------------------------------>
             <?php
                 if(isset($_GET['acteur']) && !empty($_GET['acteur']))
                 {
@@ -39,7 +40,6 @@ include("connexion_pdo.php");//pour se connecter à la base de donnée
                     if($acteur->rowCount() == 1)
                     {
                         $acteur = $acteur->fetch();
-                        // $acteur->closeCursor();
                         $id = $acteur['id_acteur'];
 
                         $likes = $bdd->prepare('SELECT * FROM likes WHERE id_acteur = ?');
@@ -79,10 +79,7 @@ include("connexion_pdo.php");//pour se connecter à la base de donnée
                     </div>
                 </div>
 
-            <!-- Création d'espace de commentaires 
-            --------------------------------------
-            --------------------------------------
-            -->
+            <!------------------- Création d'espace de commentaires ---------------------------->
             <section class="comment">
                 <h4>Commentaires</h4>
                 <?php 

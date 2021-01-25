@@ -1,8 +1,5 @@
 <?php session_start();
-include "connexion_pdo.php";
-// if(isset($_SESSION['id_user']))
-// {
-    // $getid = intval($_GET['id_user']);
+    include "connexion_pdo.php";
     $reponse = $bdd->prepare('SELECT * FROM account WHERE id_user = ?');
     $reponse->execute(array($_SESSION['id_user']));
     $donnees = $reponse->fetch();
@@ -25,8 +22,6 @@ include "connexion_pdo.php";
         }
         else echo 'tous les champs doivent être complétés';
     }
-    // else echo 'erreur form vide';
-// }
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,14 +31,15 @@ include "connexion_pdo.php";
         <meta charset="UTF-8">
     </head>
     <body>
-        <!-- L'entête  -->
+        <!--------------------------------------------------------------- L'entête  ----------------------------------------------------------->
         <header>
         <?php include("entete.php");?>
         </header>
+        <!----------------------------------------------------------------- Le corps -------------------------------------------------------- -->
         <main >
+            <a align = "left" href="index.php">Retour à la page d'acceuil</a>
             <section class="profil">
                 <h2 align="center">Profil de <?php echo $_SESSION['username'];?></h2>
-                <!-- <p><a href="#changed_password">Veuillez changer votre mot de passe s'il vous plaît</a></p> -->
                 <form action="" method = "POST" align="center">
                 <table class="changed_password" align="center">
                     <tr>
@@ -70,16 +66,15 @@ include "connexion_pdo.php";
                     echo '<font color="red">'. $erreur .'</font>';
                 }
                 ?>
+                 <div class="deconnexion"><button style = "color: black"><a href="page_deconnexion.php" >Se déconnecter</a></button></div>
             </section>
         </main>
         
-        <!-- Le pied de page -->
+        <!---------------------------------------------------------------- Le pied de page ------------------------------------------------------>
         <footer>
             <?php include("pieddepage.php");?>
         </footer>
     </body>
 </html>
 <?php 
-// }
-// else echo 'erreur';
 ?>

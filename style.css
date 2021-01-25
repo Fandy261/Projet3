@@ -41,6 +41,9 @@ header{
     height: auto;
     padding-bottom: 25px;
     color: black;
+    /* position:fixed;
+    top: 0;
+    width: 100%; */
     /* width:auto; */
 }
 header a{
@@ -191,7 +194,7 @@ footer ul{
   }
 .newComment{
     margin-top: 60px;
-    margin-left: 1050px
+    margin-left: 950px;
 }
 .button{
     margin: 50px;
