@@ -1,8 +1,12 @@
 /* -------------------------------------------------------------------desktop------------------------------------------------------------------- */
-@media only screen and (min-width: 960px) and (max-width: 1600px){ 
+@media only screen and (min-width: 960px){ 
 a{
     text-decoration: none;
     color: #D3D3D3;
+}
+#retour img{
+    height: 20px;
+    width: 40px;
 }
 button{
     border-radius: 5px ;
@@ -27,6 +31,10 @@ button a{
 html{
     margin-left: auto;
     margin-right: auto;
+}
+body{
+    max-width: 1200px;
+    margin: auto;
 }
 #logo{
     width: 110px;
@@ -61,7 +69,7 @@ header a{
 .nom_prenom{
     position:absolute;
     top:40px;
-    right:85px;
+    right:170px;
 }
 header.nom_prenom a{
     font-weight: bolder;
@@ -118,27 +126,32 @@ footer ul{
     padding: 0 2rem;
     padding: 10px;
 }
+.presentation img{
+    max-width: 700px;
+    height: 300px;
+}
 .section_acteurs{
     background-color: white;
     /* border-radius: 30px; */
     padding: 10px;
 }
 .acteurs {
-    padding: 10px;
-    position: relative;
-    border: 10px solid white;
+    display: flex;
+    justify-content: space-between;
 }
-.acteurs button {
+.section_acteurs button {
     float: right;
     color: black;
     background-color: #F5F5F5;
-    border-radius: 8px;
+    border-radius: 6px;
+    height: 30px;
+    width: 120px;  
 }
 .acteurs a img {
     /* border-radius: 90px; */
-    width: 210px;
-    height: 160px;
-    text-align: center;
+    padding: 10px;
+    width: 120px;
+    height: 90px;
 }
   /*Page acteur
   -----------------------------------
@@ -192,9 +205,15 @@ footer ul{
     border-radius: 8px;
     background-color:white;
   }
-.newComment{
+  .newComment{
+    width: 100%;
     margin-top: 60px;
-    margin-left: 950px;
+    margin-left: 750px;
+}
+#espace_newComment{
+    margin-bottom: 150px;
+    display: none;
+    width: 100%;
 }
 .button{
     margin: 50px;
@@ -209,9 +228,8 @@ footer ul{
 input[type=checkbox] {
     display: none;
   }
-#newComment{
-      margin-bottom: 150px;
-      display: none;
+input[type=checkbox] {
+    display: none;
   }
   #right_part{
       display: inline-block;
@@ -266,18 +284,18 @@ input[type=checkbox] {
     color: #f2504b;
     border: none;
   }
-  /* input[type=checkbox]:checked~.remove-check {
+  input[type=checkbox]:checked~.remove-check {
     display: none;
   }
-   */
-  input[type=checkbox]:checked~#newComment {
+  
+  input[type=checkbox]:checked~#espace_newComment {
     display: block;
   }
   
   
   /*Page inscription*/
   .page_inscription{
-      width:100%;
+      width:auto;
   }
   /*Page connexion*/
   main .connexion{
@@ -337,6 +355,10 @@ input{
    a{
     text-decoration: none;
     color: #D3D3D3;
+}
+#retour img{
+    height: 20px;
+    width: 40px;
 }
 button{
     border-radius: 5px ;
@@ -523,10 +545,9 @@ footer ul{
     border-radius: 8px;
     background-color:white;
   }
-.newComment{
-    margin-top: 60px;
-    margin-left: 850px
-}
+  .comment h4{
+      margin: 70px;
+  }
 .button{
     margin: 50px;
     padding: 15px;
@@ -540,10 +561,17 @@ footer ul{
 input[type=checkbox] {
     display: none;
   }
-#newComment{
-      margin-bottom: 150px;
-      display: none;
-  }
+  .newComment{
+    width: 100px;
+    height: 400px;
+    margin-top: 60px;
+    margin-left: 50px;
+}
+#espace_newComment{
+    /* margin-bottom: 50px; */
+    display: none;
+    width: 100%;
+}
   #right_part{
       display: inline-block;
   }
@@ -601,14 +629,14 @@ input[type=checkbox] {
     display: none;
   }
    */
-  input[type=checkbox]:checked~#newComment {
+  input[type=checkbox]:checked~#espace_newComment {
     display: block;
   }
   
   
   /*Page inscription*/
   .page_inscription{
-      width:100%;
+      width:auto;
   }
   /*Page connexion*/
   main .connexion{
@@ -669,6 +697,10 @@ input{
    a{
     text-decoration: none;
     color: #D3D3D3;
+}
+#retour img{
+    height: 20px;
+    width: 40px;
 }
 button{
     border-radius: 5px ;
@@ -781,6 +813,10 @@ footer ul{
     padding: 0 2rem;
     padding: 10px;
 }
+.presentation img{
+    width: 350px;
+    height: 150px;
+}
 .section_acteurs{
     background-color: white;
     /* border-radius: 30px; */
@@ -855,9 +891,6 @@ footer ul{
     border-radius: 8px;
     background-color:white;
   }
-.newComment{
-    margin-top: 60px;
-}
 .button{
     margin: 50px;
     padding: 15px;
@@ -871,10 +904,16 @@ footer ul{
 input[type=checkbox] {
     display: none;
   }
-#newComment{
-      margin-bottom: 150px;
-      display: none;
-  }
+  .newComment{
+    width: 100%;
+    margin-top: 100px;
+    margin-left: 150px;
+}
+#espace_newComment{
+    margin-bottom: 150px;
+    display: none;
+    width: 100%;
+}
   #right_part{
       display: inline-block;
   }
@@ -932,14 +971,14 @@ input[type=checkbox] {
     display: none;
   }
    */
-  input[type=checkbox]:checked~#newComment {
+  input[type=checkbox]:checked~#espace_newComment {
     display: block;
   }
   
   
   /*Page inscription*/
   .page_inscription{
-      width:100%;
+      width:auto;
   }
   /*Page connexion*/
   main .connexion{

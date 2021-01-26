@@ -22,7 +22,7 @@ include("connexion_pdo.php");//pour se connecter à la base de donnée
             $reponse ->execute(array($_GET['acteur']));
             $donnees = $reponse -> fetch()
             ?>
-            <a align = "left" href="index.php">Retour à la page d'acceuil</a>
+            <a href="index.php" id="retour"><img src="images/retour.png" alt=""></a>
             <section class="description_acteur">
                 <center><img id="logo_acteur" src="<?php echo $donnees['logo'];?>" alt="logo_acteur" ></center>
                 <h2><?php echo $donnees['nom'];?></h2>
@@ -57,7 +57,7 @@ include("connexion_pdo.php");//pour se connecter à la base de donnée
                 <div class="newComment">
                     <label for="reveal-comment" class="button"> Nouveau commentaire</label>
                     <input type="checkbox" id="reveal-comment" role="button">
-                    <div id="newComment">
+                    <div id="espace_newComment">
                         <form  action="traitement_commentaire.php" method="POST">
                             <textarea name="post" id = "post" cols="30" rows="6" style="border-radius: 10px" ></textarea>
                             <input type="hidden" value="<?php echo $donnees['id_acteur'];?>" name="id_acteur" id="id_acteur"></br>
@@ -78,13 +78,18 @@ include("connexion_pdo.php");//pour se connecter à la base de donnée
                         </form>
                     </div>
                 </div>
+               
 
             <!------------------- Création d'espace de commentaires ---------------------------->
             <section class="comment">
-                <h4>Commentaires</h4>
                 <?php 
                 $print_comment = $bdd->prepare('SELECT a.username, p.date_add, p.post FROM post p LEFT JOIN account a ON p.id_user = a.id_user  WHERE id_acteur=? ORDER BY post DESC LIMIT 0,5 ');
                 $print_comment ->execute(array($_GET['acteur']));
+                $print_nbr_comment = $print_comment->rowCount();
+                ?>
+                <h4><?php echo $print_nbr_comment ;?> Commentaires</h4>
+                <?php 
+                
                 while($comment = $print_comment->fetch())
                 {
                     ?>

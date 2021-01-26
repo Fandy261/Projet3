@@ -69,7 +69,7 @@ if(isset($_POST['formInscription']))//pour vérifier si la formulaire existe
         <header>
             
         </header>
-        <main  align="center" class="page_inscription">
+        <main  class="page_inscription">
             <h2 align="center">Inscrivez-vous</h2>
             <form action=" " method="POST" >
                 <table  align="center">

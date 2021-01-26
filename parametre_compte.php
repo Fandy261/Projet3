@@ -37,7 +37,7 @@
         </header>
         <!----------------------------------------------------------------- Le corps -------------------------------------------------------- -->
         <main >
-            <a align = "left" href="index.php">Retour à la page d'acceuil</a>
+            <a href="index.php" id="retour"><img src="images/retour.png" alt=""></a>
             <section class="profil">
                 <h2 align="center">Profil de <?php echo $_SESSION['username'];?></h2>
                 <form action="" method = "POST" align="center">
