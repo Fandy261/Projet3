@@ -46,7 +46,7 @@ include("connexion_pdo.php");//pour se connecter à la base de donnée
                         $likes ->execute(array($id));
                         $likes = $likes->rowCount();
                         
-                        $dislikes = $bdd->prepare('SELECT * FROM dislikes WHERE id_acteur = ?');
+                        $dislikes = $bdd->prepare('SELECT * FROM dislikes WHERE id_acteur = ? ');
                         $dislikes ->execute(array($id));
                         $dislikes = $dislikes->rowCount();
                         
@@ -67,7 +67,7 @@ include("connexion_pdo.php");//pour se connecter à la base de donnée
                 </div>
                 <div class="vote">
                     <div class="vote_bar">
-                        <div class="vote_progress"></div>
+                        <div class="vote_progress" style="background-color: #63b96b; height: 4px;width:<?php ($likes+$dislikes) == 0 ? 100 : (100*$likes/($likes+$dislikes));?>%"></div>
                     </div>
                     <div class="vote_btns">
                         <form action="traitement_vote.php?acteur=<?php echo $donnees['id_acteur'];?>&vote=1" method = "POST">
