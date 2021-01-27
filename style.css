@@ -244,17 +244,17 @@ input[type=checkbox] {
     display: inline-block;
 }
   .vote_bar{
-      width: 100%;
+      width: 150px;
       height: 4px;
       margin-right: 10px;
       background-color: #f2504b;
       
   }
-  .vote_progress{
-      width: 0%;
+  /* .vote_progress{
+      width:50%;
       height: 4px;
       background-color: #63b96b;
-  }
+  } */
   .vote_btns{
       text-align: right;
      

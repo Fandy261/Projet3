@@ -37,7 +37,7 @@ l'activité bancaire à l’échelle nationale. C’est aussi un interlocuteur p
             <?php 
             // impportation des données de la table acteurs dans la base de donnée
             $reponse = $bdd -> query('SELECT id_acteur, nom, description, logo FROM acteurs');?>
-            <section class="section_acteurs">
+            <div class="section_acteurs">
             <h1>Acteurs et partenaires</h1>
             <?php
             while($donnees = $reponse -> fetch())
@@ -58,7 +58,7 @@ l'activité bancaire à l’échelle nationale. C’est aussi un interlocuteur p
                     }
                     $reponse->closeCursor();
                     ?>
-            </section>
+            </div>
         </main>
         <?php include ("pieddepage.php") ?>
     </body>
