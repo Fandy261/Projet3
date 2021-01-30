@@ -1,3 +1,7 @@
+h2,table{
+    display: flex;
+    justify-content: center;
+}
 /* -------------------------------------------------------------------desktop------------------------------------------------------------------- */
 @media only screen and (min-width: 960px){ 
 a{
@@ -12,23 +16,13 @@ button{
     border-radius: 5px ;
     border: 5px solid #F5F5F5;
     cursor: pointer;
-    /* background-color:#777777; */
-    /* margin: auto; */
 }
 button a{
     color: black;
     background-color: #F5F5F5;
 }
-/* largeur de l'écran desktop*/
-/* @media all and (max-width: 1024px)
-{
-    main, header, footer
-    {
-        height: auto;
-        width: auto;
-    }
-} */
 html{
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -39,56 +33,60 @@ body{
 #logo{
     width: 110px;
     height: auto;
-    /* border: 10px solid #D3D3D3; */
     border-radius: 20px 20px;
-    /* color: black; */
 }
-/*header*/
+/* ------------------------------------header ----------------------------------*/
 header{
+    max-width: 1200px;
     background-color:black;
     height: auto;
     padding-bottom: 25px;
     color: black;
-    /* position:fixed;
-    top: 0;
-    width: 100%; */
-    /* width:auto; */
+    width:100%; 
 }
 header a{
     font-size: small;
 }
+.header_right{
+    display: flex;
+    justify-content: flex-end;
+}
 #naviguation {
     background-color: white;
-    
+    max-width: 1200px;
 }
 #naviguation a{
     color: black;
     font-size: 1.1em;
     font-weight: bolder;
 }
+#naviguation #icone a img{
+    border-radius: 110px;
+    width:45px; 
+    position:absolute;
+    top:30px;
+    right:600px;
+    height: auto;
+    margin-right:10px;
+}
 .nom_prenom{
     position:absolute;
     top:40px;
-    right:170px;
+    right:350px;
+    margin-left:10px;
 }
 header.nom_prenom a{
     font-weight: bolder;
 }
-/*main*/
+/*---------------------------------------main--------------------------------------*/
 main{
     background-color: #F5F5F5;
-    /* #545454; */
-    /* background: white url(images/logo.png) repeat center bottom;
-    background-size:1950px 1250px;
-    opacity: 0.7; */
     height: auto;
     padding: 20px;
 }
-/*footer*/
+/*-------------------------------------footer-------------------------------------------*/
 footer{
-    
     background-color:black;
-    /* width: auto; */
     height: 100px;
     padding-top: 30px;
 }
@@ -96,21 +94,16 @@ footer ul a{
     color: #ffffff;
 }
 footer ul li{
-    
     display: inline-block;
     list-style-type: none;
  }
 footer ul{
     text-align: center;
-    
 }
 #pied_de_page a{
     font-size: small;
 }
-/* page index 
-------------------------------
-------------------------------
-*/
+/*------------------------------ page index ------------------------------------------------------------*/
 .acteurs a{
     text-decoration: none;
 }
@@ -119,20 +112,17 @@ footer ul{
     padding: 10px;
 }
 .presentation{
-    /* background-color: #D3D3D3; */
-    /* border: 10px solid white; */
     max-width: 700px;
     margin: 3rem auto;
     padding: 0 2rem;
     padding: 10px;
 }
 .presentation img{
-    max-width: 700px;
+    width: auto;
     height: 300px;
 }
 .section_acteurs{
     background-color: white;
-    /* border-radius: 30px; */
     padding: 10px;
 }
 .acteurs {
@@ -148,27 +138,19 @@ footer ul{
     width: 120px;  
 }
 .acteurs a img {
-    /* border-radius: 90px; */
     padding: 10px;
     width: 120px;
     height: 90px;
 }
-  /*Page acteur
-  -----------------------------------
-  -----------------------------------
-  */
-  .description_acteur{
-    /* background-color: #D3D3D3; */
-    /* border-radius: 30px; */
-    /* padding: 10px; */
+  /*----------------------------Page acteur---------------------------------------------------*/
+.description_acteur{
     max-width: 700px;
     margin: 3rem auto;
     padding: 0 2rem;
   }
   .description_acteur_logo #logo_acteur{
     position: relative;
-    /* left: 50%; */
-    /* right: 50%; */
+    text-align: center;
     margin-left: -50vw;
     margin-right: -50vw;
     max-width: 100vw;
@@ -186,29 +168,28 @@ footer ul{
     font-weight: lighter;
 }
 .p3{
-    line-height: 0.5em;
-    font-size: 1em;
+    line-height: 1.5em;
+    font-size: 0.9em;
     font-weight: normal;
 }
-  /*espace de commentaires*/
-  textarea{
-      background-color:white;
+  /*-------------------------espace de commentaires------------------------------*/
+textarea{
+    background-color:white;
   }
 .comment .table_comment{
     display: block;
     margin: 10px;
-    /* padding: 2px; */
     padding-left: 10px;
     padding-top: 1px;
     width: 600px;
-    height: 80px;
+    height: auto;
     border-radius: 8px;
     background-color:white;
   }
   .newComment{
     width: 100%;
     margin-top: 60px;
-    margin-left: 750px;
+    margin-left: 350px;
 }
 #espace_newComment{
     margin-bottom: 150px;
@@ -227,109 +208,96 @@ footer ul{
 }
 input[type=checkbox] {
     display: none;
-  }
+}
 input[type=checkbox] {
     display: none;
-  }
-  #right_part{
+}
+#right_part{
       display: inline-block;
-  }
-  /*espace de like/dislike*/
-  .vote{
-      width: 150px;
-      float: right;
-      
-  }
-  .vote form {
+}
+  /*----------------------------------espace de like/dislike----------------------*/
+.vote{
+    width: 150px;
+    float: right;
+}
+.vote form {
     display: inline-block;
 }
-  .vote_bar{
-      width: 150px;
-      height: 4px;
-      margin-right: 10px;
-      background-color: #f2504b;
-      
-  }
-  /* .vote_progress{
-      width:50%;
-      height: 4px;
-      background-color: #63b96b;
-  } */
-  .vote_btns{
-      text-align: right;
-     
-  }
-  .vote_btn{
-      display: inline-block;
-      cursor: pointer;
-      border: none;
-      padding: 0;
-      margin: 0;
-      margin-left: 10px;
-      margin-right: 10px;
-      background: transparent;
-      transition: color 0.3s;
-  }
-  .vote_like:hover{
+.vote_bar{
+    width: 150px;
+    height: 4px;
+    margin-right: 10px;
+    background-color: #f2504b;
+}
+.vote_btns{
+    text-align: right;
+}
+.vote_btn{
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: transparent;
+    transition: color 0.3s;
+}
+.vote_like:hover{
     color: #63b96b;
-  }
-  .vote_dislike:hover{
-      color: #f2504b;
-  }
-  .vote_like:active{
+}
+.vote_dislike:hover{
+    color: #f2504b;
+}
+.vote_like:active{
     color: #63b96b;
     border: none;
-  }
-  .vote_dislike:active{
+}
+.vote_dislike:active{
     color: #f2504b;
     border: none;
-  }
-  input[type=checkbox]:checked~.remove-check {
+}
+input[type=checkbox]:checked~.remove-check {
     display: none;
-  }
-  
-  input[type=checkbox]:checked~#espace_newComment {
+}
+input[type=checkbox]:checked~#espace_newComment {
     display: block;
-  }
-  
-  
-  /*Page inscription*/
-  .page_inscription{
-      width:auto;
-  }
-  /*Page connexion*/
-  main .connexion{
-      padding-top: 50px;
-      width: auto;
-      /* height: auto; */
-      height: 400px;
-  }
-  .connexion input{
-      height: 40px;
-      width: 170px;
-      margin: 20px;
-      border-radius: 5px;
-  }
-  .connexion button{
+}
+/*------------------------------------Page inscription---------------*/
+.page_inscription{
+    width:auto;
+}
+/*-----------------------------------Page connexion---------------------*/
+main .connexion{
+    padding-top: 50px;
+    width: auto;
+    height: 400px;
+}
+.connexion input{
+    height: 40px;
+    width: 170px;
+    margin: 20px;
+    border-radius: 5px;
+}
+.connexion button{
     cursor: pointer;
     background-color: white;
     border: white;
-  }
-  /*Page parametre de compte*/
-  .profil{
-    /* margin-left: 500px;
-    margin-right: 500px; */
+}
+/*--------------------------------Page parametre de compte-------------------------------*/
+.profil{
     margin: auto;
+    height: auto;
     background-color: white;
     padding: 50px;
-  }
-  main .profil{
+}
+main .profil{
     width: auto;
-    height: 300px;
-  }
-  .profil a{ 
-      color: black;
-  }
+
+}
+.profil a{ 
+    color: black;
+}
 .changed_password button{
     cursor: pointer;
     background-color: black;
@@ -347,12 +315,29 @@ input[type=checkbox] {
 input{
     border:#F5F5F5;
 }
+/*verification de mot de passe pour le mot de passe oublié*/
+main .verification{
+    padding-top: 50px;
+    width: auto;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+}
+.verification input{
+    height: 40px;
+    width: 170px;
+    margin: 20px;
+    border-radius: 5px;
+}
+.verification button{
+    cursor: pointer;
+    background-color: white;
+    border: white;
+}
 }
 /* -------------------------------------------------------------------------smartphone------------------------------------------------------ */
-@media only screen and (min-width: 320px) and (max-width: 480px){
-    /*style petits smartphones en voie de disparition*/
-  
-   a{
+@media only screen and (max-width: 480px){
+a{
     text-decoration: none;
     color: #D3D3D3;
 }
@@ -364,22 +349,11 @@ button{
     border-radius: 5px ;
     border: 5px solid #F5F5F5;
     cursor: pointer;
-    /* background-color:#777777; */
-    /* margin: auto; */
 }
 button a{
     color: black;
     background-color: #F5F5F5;
 }
-/* largeur de l'écran desktop*/
-/* @media all and (max-width: 1024px)
-{
-    main, header, footer
-    {
-        height: auto;
-        width: auto;
-    }
-} */
 html{
     margin-left: auto;
     margin-right: auto;
@@ -387,9 +361,7 @@ html{
 #logo{
     width: 110px;
     height: auto;
-    /* border: 10px solid #D3D3D3; */
     border-radius: 20px 20px;
-    /* color: black; */
 }
 /*header*/
 header{
@@ -397,7 +369,6 @@ header{
     height: auto;
     padding-bottom: 25px;
     color: black;
-    /* width:auto; */
 }
 header a{
     font-size: small;
@@ -410,11 +381,20 @@ header a{
     color: black;
     font-size: 1.1em;
     font-weight: bolder;
+    
+}
+#naviguation #icone a img{
+    border-radius: 110px;
+    width:15px; 
+    position:absolute;
+    top:30px;
+    right:230px;
+    margin-right:10px;
 }
 .nom_prenom{
     position:absolute;
     top:40px;
-    right:85px;
+    right:95px;
 }
 header.nom_prenom a{
     font-weight: bolder;
@@ -422,10 +402,6 @@ header.nom_prenom a{
 /*main*/
 main{
     background-color: #F5F5F5;
-    /* #545454; */
-    /* background: white url(images/logo.png) repeat center bottom;
-    background-size:1950px 1250px;
-    opacity: 0.7; */
     height: auto;
     padding: 20px;
 }
@@ -433,7 +409,6 @@ main{
 footer{
     
     background-color:black;
-    /* width: auto; */
     height: 100px;
     padding-top: 30px;
 }
@@ -464,16 +439,16 @@ footer ul{
     padding: 10px;
 }
 .presentation{
-    /* background-color: #D3D3D3; */
-    /* border: 10px solid white; */
-    max-width: 700px;
     margin: 3rem auto;
     padding: 0 2rem;
     padding: 10px;
 }
+.presentation img{
+    width: 200px;
+    height: 100px;
+}
 .section_acteurs{
     background-color: white;
-    /* border-radius: 30px; */
     padding: 10px;
 }
 .acteurs {
@@ -488,7 +463,6 @@ footer ul{
     border-radius: 8px;
 }
 .acteurs a img {
-    /* border-radius: 90px; */
     width: 100px;
     height: 50px;
     text-align: center;
@@ -498,17 +472,12 @@ footer ul{
   -----------------------------------
   */
   .description_acteur{
-    /* background-color: #D3D3D3; */
-    /* border-radius: 30px; */
-    /* padding: 10px; */
     max-width: 300px;
     margin: 3rem auto;
     padding: 0 2rem;
   }
   .description_acteur_logo #logo_acteur{
     position: relative;
-    /* left: 50%; */
-    /* right: 50%; */
     margin-left: -50vw;
     margin-right: -50vw;
     max-width: 100vw;
@@ -526,8 +495,8 @@ footer ul{
     font-weight: lighter;
 }
 .p3{
-    line-height: 0.5em;
-    font-size: 1em;
+    line-height: 2.5em;
+    font-size: 0.5em;
     font-weight: normal;
 }
   /*espace de commentaires*/
@@ -537,7 +506,6 @@ footer ul{
 .comment .table_comment{
     display: block;
     margin: 10px;
-    /* padding: 2px; */
     padding-left: 10px;
     padding-top: 1px;
     width: 600px;
@@ -562,13 +530,11 @@ input[type=checkbox] {
     display: none;
   }
   .newComment{
-    width: 100px;
-    height: 400px;
+    width: 50%;
     margin-top: 60px;
     margin-left: 50px;
 }
 #espace_newComment{
-    /* margin-bottom: 50px; */
     display: none;
     width: 100%;
 }
@@ -579,7 +545,6 @@ input[type=checkbox] {
   .vote{
       width: 150px;
       float: right;
-      
   }
   .vote form {
     display: inline-block;
@@ -589,7 +554,6 @@ input[type=checkbox] {
       height: 4px;
       margin-right: 10px;
       background-color: #f2504b;
-      
   }
   .vote_progress{
       width: 0%;
@@ -598,18 +562,17 @@ input[type=checkbox] {
   }
   .vote_btns{
       text-align: right;
-     
   }
   .vote_btn{
-      display: inline-block;
-      cursor: pointer;
-      border: none;
-      padding: 0;
-      margin: 0;
-      margin-left: 10px;
-      margin-right: 10px;
-      background: transparent;
-      transition: color 0.3s;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: transparent;
+    transition: color 0.3s;
   }
   .vote_like:hover{
     color: #63b96b;
@@ -625,31 +588,24 @@ input[type=checkbox] {
     color: #f2504b;
     border: none;
   }
-  /* input[type=checkbox]:checked~.remove-check {
-    display: none;
-  }
-   */
   input[type=checkbox]:checked~#espace_newComment {
     display: block;
   }
-  
-  
   /*Page inscription*/
   .page_inscription{
       width:auto;
   }
   /*Page connexion*/
   main .connexion{
-      padding-top: 50px;
-      width: auto;
-      /* height: auto; */
-      height: 400px;
+    padding-top: 50px;
+    width: auto;
+    height: 400px;
   }
   .connexion input{
-      height: 40px;
-      width: 170px;
-      margin: 20px;
-      border-radius: 5px;
+    height: 40px;
+    width: 170px;
+    margin: 20px;
+    border-radius: 5px;
   }
   .connexion button{
     cursor: pointer;
@@ -689,7 +645,7 @@ input{
 }
 }
 /* --------------------------------------------------------------Tablette----------------------------------------------------------------------- */
-@media only screen and (min-width: 480px) and (max-width: 960px){
+@media only screen and (max-width: 960px){
     /*style petits smartphones en voie de disparition*/
    .description_acteur #logo_acteur{
        width: 350px;
@@ -706,22 +662,11 @@ button{
     border-radius: 5px ;
     border: 5px solid #F5F5F5;
     cursor: pointer;
-    /* background-color:#777777; */
-    /* margin: auto; */
 }
 button a{
     color: black;
     background-color: #F5F5F5;
 }
-/* largeur de l'écran desktop*/
-/* @media all and (max-width: 1024px)
-{
-    main, header, footer
-    {
-        height: auto;
-        width: auto;
-    }
-} */
 html{
     margin-left: auto;
     margin-right: auto;
@@ -729,9 +674,7 @@ html{
 #logo{
     width: 110px;
     height: auto;
-    /* border: 10px solid #D3D3D3; */
     border-radius: 20px 20px;
-    /* color: black; */
 }
 /*header*/
 header{
@@ -739,14 +682,12 @@ header{
     height: auto;
     padding-bottom: 25px;
     color: black;
-    /* width:auto; */
 }
 header a{
     font-size: small;
 }
 #naviguation {
     background-color: white;
-    
 }
 #naviguation a{
     color: black;
@@ -756,7 +697,15 @@ header a{
 .nom_prenom{
     position:absolute;
     top:40px;
-    right:85px;
+    right:35px;
+}
+#naviguation #icone a img{
+    border-radius: 110px;
+    width:45px; 
+    position:absolute;
+    top:30px;
+    right:160px;
+    margin-right:10px
 }
 header.nom_prenom a{
     font-weight: bolder;
@@ -764,18 +713,12 @@ header.nom_prenom a{
 /*main*/
 main{
     background-color: #F5F5F5;
-    /* #545454; */
-    /* background: white url(images/logo.png) repeat center bottom;
-    background-size:1950px 1250px;
-    opacity: 0.7; */
     height: auto;
     padding: 20px;
 }
 /*footer*/
 footer{
-    
     background-color:black;
-    /* width: auto; */
     height: 100px;
     padding-top: 30px;
 }
@@ -783,13 +726,11 @@ footer ul a{
     color: #ffffff;
 }
 footer ul li{
-    
     display: inline-block;
     list-style-type: none;
  }
 footer ul{
     text-align: center;
-    
 }
 #pied_de_page a{
     font-size: small;
@@ -806,8 +747,6 @@ footer ul{
     padding: 10px;
 }
 .presentation{
-    /* background-color: #D3D3D3; */
-    /* border: 10px solid white; */
     max-width: 700px;
     margin: 3rem auto;
     padding: 0 2rem;
@@ -819,7 +758,6 @@ footer ul{
 }
 .section_acteurs{
     background-color: white;
-    /* border-radius: 30px; */
     padding: 10px;
 }
 .acteurs {
@@ -834,7 +772,6 @@ footer ul{
     border-radius: 8px;
 }
 .acteurs a img {
-    /* border-radius: 90px; */
     width: 160px;
     height: 120px;
     text-align: center;
@@ -844,17 +781,12 @@ footer ul{
   -----------------------------------
   */
   .description_acteur{
-    /* background-color: #D3D3D3; */
-    /* border-radius: 30px; */
-    /* padding: 10px; */
     max-width: 700px;
     margin: 3rem auto;
     padding: 0 2rem;
   }
   .description_acteur_logo #logo_acteur{
     position: relative;
-    /* left: 50%; */
-    /* right: 50%; */
     margin-left: -50vw;
     margin-right: -50vw;
     max-width: 100vw;
@@ -883,7 +815,6 @@ footer ul{
 .comment .table_comment{
     display: block;
     margin: 10px;
-    /* padding: 2px; */
     padding-left: 10px;
     padding-top: 1px;
     width: 600px;
@@ -904,10 +835,9 @@ footer ul{
 input[type=checkbox] {
     display: none;
   }
-  .newComment{
+.newComment{
     width: 100%;
     margin-top: 100px;
-    margin-left: 150px;
 }
 #espace_newComment{
     margin-bottom: 150px;
@@ -921,17 +851,15 @@ input[type=checkbox] {
   .vote{
       width: 150px;
       float: right;
-      
   }
   .vote form {
     display: inline-block;
 }
   .vote_bar{
-      width: 100%;
-      height: 4px;
-      margin-right: 10px;
-      background-color: #f2504b;
-      
+    width: 100%;
+    height: 4px;
+    margin-right: 10px;
+    background-color: #f2504b;
   }
   .vote_progress{
       width: 0%;
@@ -939,19 +867,18 @@ input[type=checkbox] {
       background-color: #63b96b;
   }
   .vote_btns{
-      text-align: right;
-     
+    text-align: right;
   }
   .vote_btn{
-      display: inline-block;
-      cursor: pointer;
-      border: none;
-      padding: 0;
-      margin: 0;
-      margin-left: 10px;
-      margin-right: 10px;
-      background: transparent;
-      transition: color 0.3s;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: transparent;
+    transition: color 0.3s;
   }
   .vote_like:hover{
     color: #63b96b;
@@ -967,31 +894,24 @@ input[type=checkbox] {
     color: #f2504b;
     border: none;
   }
-  /* input[type=checkbox]:checked~.remove-check {
-    display: none;
-  }
-   */
   input[type=checkbox]:checked~#espace_newComment {
     display: block;
-  }
-  
-  
+  }  
   /*Page inscription*/
   .page_inscription{
-      width:auto;
+    width:auto;
   }
   /*Page connexion*/
   main .connexion{
-      padding-top: 50px;
-      width: auto;
-      /* height: auto; */
-      height: 400px;
+    padding-top: 50px;
+    width: auto;
+    height: 400px;
   }
   .connexion input{
-      height: 40px;
-      width: 170px;
-      margin: 20px;
-      border-radius: 5px;
+    height: 40px;
+    width: 170px;
+    margin: 20px;
+    border-radius: 5px;
   }
   .connexion button{
     cursor: pointer;
@@ -1000,8 +920,6 @@ input[type=checkbox] {
   }
   /*Page parametre de compte*/
   .profil{
-    /* margin-left: 300px;
-    margin-right: 300px; */
     margin: auto;
     background-color: white;
     padding: 30px;
@@ -1011,7 +929,7 @@ input[type=checkbox] {
     height: 300px;
   }
   .profil a{ 
-      color: black;
+    color: black;
   }
 .changed_password button{
     cursor: pointer;
@@ -1031,4 +949,3 @@ input{
     border:#F5F5F5;
 }
 }
-
